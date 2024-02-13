@@ -8,11 +8,16 @@ import sys
 
 # Complete the solve function below.
 def solve(s):
-    lst = [word[0].upper() + word[1:] for word in s.split()]
-    print (lst)
-    s = " ".join(lst)
+    result =''
+    for i in range(len(s)):
+        if i ==0:
+            result = result + s[i].upper()
+        elif s[i-1] == ' ' and s[i] != ' ':
+            result = result + s[i].upper()
+        else:
+            result = result + s[i]
         
-    return s
+    return result
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
